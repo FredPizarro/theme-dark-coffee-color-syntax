@@ -1,0 +1,41 @@
+.syntax--css {
+    .syntax--support {
+        &.syntax--constant {
+          color: @grey_500;
+          text-shadow: 0 0 1px rgba(0, 0, 0, 0.7);
+        }
+
+        &.syntax--property-name {
+            color: @red_A200;
+                          // font-size: 16px;
+              text-shadow: none !important;
+              font-family: "Roboto Bold";
+        }
+    }
+
+    .syntax--keyword {
+        &.syntax--unit {
+            color: @green_300;
+            text-shadow: @txt-shadown;
+        }
+    }
+
+    .syntax--constant {
+        &.syntax--color {
+              color: @green_300;
+              text-shadow: @txt-shadown;
+
+            .syntax--punctuation {
+                  color: @green_300;
+                  text-shadow: @txt-shadown;
+            }
+        }
+    }
+
+    .syntax--entity {
+        &.syntax--tag {
+              color: @green_300;
+              text-shadow: @txt-shadown;
+        }
+    }
+}

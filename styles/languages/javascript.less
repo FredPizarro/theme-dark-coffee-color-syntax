@@ -1,0 +1,40 @@
+.syntax--js {
+    .syntax--constant {
+        color: @grey_300;
+    }
+
+    .syntax--support {
+        &.syntax--variable {
+            &.syntax--property {
+                color: @grey_400;
+            }
+        }
+    }
+
+    .syntax--entity {
+        &.syntax--name {
+            &.syntax--type {
+                color: @deep-orange_400;
+            }
+        }
+    }
+
+    .syntax--variable {
+        &.syntax--property {
+            color: @blue_500;
+        }
+        &.syntax--other.syntax--object {
+            color: @grey_500;
+        }
+    }
+
+    .syntax--constant {
+        &.syntax--numeric {
+            color: @red_A400;
+        }
+
+        &.syntax--boolean {
+            color: @green_300;
+        }
+    }
+}

@@ -1,0 +1,40 @@
+.syntax--json {
+    .syntax--meta {
+        &.syntax--array.syntax--structure .syntax--string.syntax--quoted.syntax--double {
+            color: @green_300;
+
+            > * {
+                color: @white;
+
+                &.syntax--punctuation {
+                    &.syntax--begin, &.syntax--end {
+                        color: @deep-orange_400;
+                        text-shadow: @txt-shadown;font-family: "Roboto Bold";
+                    }
+                }
+            }
+        }
+
+        .syntax--punctuation.syntax--separator.syntax--key-value + .syntax--string.syntax--quoted {
+            color: @green_300;
+
+            * {
+                color: white;
+
+                &.syntax--punctuation {
+                    &.syntax--begin, &.syntax--end {
+                        color: @green_300;
+                    }
+                }
+            }
+        }
+
+        &.syntax--structure.syntax--dictionary .syntax--string.syntax--quoted {
+            color: @green_300;
+
+            .syntax--punctuation.syntax--string {
+                color: white;
+            }
+        }
+    }
+}

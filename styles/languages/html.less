@@ -1,0 +1,24 @@
+.syntax--html {
+    .syntax--meta {
+        &.syntax--tag {
+            &.syntax--doctype {
+                color: @green_300;
+            }
+
+        }
+    }
+
+    .syntax--punctuation {
+        &.syntax--tag {
+            color: @green_300;
+        }
+    }
+
+    &.syntax--other.syntax--attribute-name {
+        /* name attribute, class, ids en CSS */
+            color: @deep-orange_700;
+            font-family: "Roboto Regular", monospace;
+            text-shadow: @txt-shadown;
+    }
+
+}

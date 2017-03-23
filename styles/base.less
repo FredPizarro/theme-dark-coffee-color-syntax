@@ -1,0 +1,668 @@
+@import "syntax-variables";
+
+@txt-shadown: 0 0 1px rgba(255, 255, 255, 0.5);
+@txt-shadown-c: 0 0 0.1px rgba(255, 255, 255, 0.5);
+
+
+
+atom-text-editor {
+    background-color: @syntax-background-color;
+    color: @grey_300;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.7);
+
+    .wrap-guide {
+        background-color: @syntax-indent-guide-color;
+    }
+
+    .indent-guide {
+        color: @syntax-indent-guide-color;
+    }
+
+    .invisible-character {
+        color: @syntax-invisible-character-color;
+    }
+
+    .cursor-line {
+        background-color: darken(@syntax-background-color, 2.5%);
+
+    }
+
+    .gutter {
+        // background-color: @syntax-gutter-background-color;
+        // color: @syntax-gutter-text-color;
+    /*Default*/
+    /*
+  overflow: hidden;
+z-index: 0;
+text-align: right;
+cursor: default;
+min-width: 1em;
+box-sizing: border-box;
+         */
+
+
+         /* color de linea  */
+        background: @grey_900;
+        color: @grey_500;
+        border-right: 1px solid @black;
+        font-family: 'Roboto Light', sans-serif;
+
+        .line-number {
+          opacity: 1.0 !important;
+          position: relative;
+
+            &.cursor-line {
+              /*Seleccionar varias lineas*/
+              color: @grey_500;
+              background: transparent;
+              opacity: 1.0 !important;
+              text-shadow: @txt-shadown;
+              font-family: "Roboto Medium";
+            }
+
+            &.cursor-line-no-selection {
+               /*  linea numero selección */
+                color: @grey_600;
+                text-shadow: @txt-shadown;
+                font-family: "Roboto Medium";
+            }
+        }
+    }
+
+    .fold-marker:after{
+      color: @grey_500;
+      font-family: 'Roboto Bold', sans-serif;
+    }
+    .gutter .line-number.folded{
+      color: transparent; opacity: 0.9;
+      font-family: 'Roboto Bold', sans-serif;
+
+      .icon-right {
+          position: absolute;
+          left: 12px;
+          z-index: 9999;
+          border-radius: 50%;
+          padding-left: 8px; padding-right: 6px;
+          border: 1px solid @yellow_500; border-radius: 50%;
+          background-color: @yellow_500;
+          color: #000000;
+          box-shadow: 0 2px 5px 0 rgba(255, 255, 255, 0.14), 0 2px 10px 0 rgba(255, 255,255, 0.10);
+          transition: margin 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+          display: inline-block; /* Default */
+          visibility: visible; /* Default corregido */
+          opacity: 1 !important; /* Default corregido */
+
+        &::before {
+          text-align: center;
+        }
+      }
+
+    }
+
+
+    .gutter .line-number:after {
+      color: @grey_500;
+      font-family: 'Roboto Bold', sans-serif;
+    }
+
+
+    .invisible {
+        color: @syntax-text-color;
+    }
+
+    .cursor {
+        /*  cursor linea */
+        border-left: 2px solid @red_500 !important;
+    }
+
+    .selection .region {
+        background-color: @syntax-selection-color;
+        border-bottom-left-radius: 3px;
+        box-shadow: 0 2px 5px 0 rgba(255, 255, 255, 0.07),
+         0 2px 10px 0 rgba(255, 255, 255, 0.03);
+
+    }
+}
+
+atom-text-editor .search-results .syntax--marker {
+  position: relative;
+}
+
+atom-text-editor .search-results .syntax--marker .region {
+    // background-color: transparent;
+    background: @red_A200 !important;
+}
+
+atom-text-editor .search-results .syntax--marker.current-result .region {
+    background-color: @syntax-result-marker-color-selected;
+    color: #000;
+    box-shadow: 0 2px 5px 0 rgba(255, 255, 255, 0.16), 0 2px 10px 0 rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid @teal_500;
+}
+
+// Syntax styles
+.syntax--comment {
+    color: @syntax-comment-color;
+    font-family: "Roboto Light", sans-serif;
+    font-style: italic;
+}
+
+.syntax--keyword {
+   /*  !important */
+   color: @green_300;
+  font-family: "Roboto Bold", monospace;
+  text-shadow: @txt-shadown;
+
+    &.syntax--control {
+        color: @red_A200;
+
+        &.syntax--elements {
+            color: @grey_600;
+        }
+    }
+
+    &.syntax--operator {
+        color: @grey_500;
+        // font-size: 15px;
+        text-shadow:
+            0 0 1px #ffffff,
+            0 0 2px #000000,
+            0 0 3px #000000,
+            0 0 4px #000,
+            0 0 7px #000,
+            0 0 8px #000,
+            0 0 10px #000,
+            0 0 75px #fff;
+    }
+
+    &.syntax--other.syntax--special-method {
+      color: @yellow_A700;
+      font-family: "Roboto Bold", monospace;
+      //  font-size: 16px;
+      text-shadow: @txt-shadown;
+    }
+
+    &.syntax--other.syntax--unit {
+        color: @grey_400;
+    }
+}
+
+.syntax--storage {
+    color: @yellow_A700;
+}
+
+.syntax--constant {
+    /* valores string #color */
+    color: @deep-orange_400;
+    text-shadow: @txt-shadown;
+
+    &.syntax--character.syntax--escape {
+        /* ???????????????? */
+        color: @deep-orange_700;
+        text-shadow: @txt-shadown;
+        // font-size: 15px;
+    }
+
+    &.syntax--numeric {
+      /* number */
+      color: @white; opacity: 1;
+      font-family: 'Roboto Thin', sans-serif;
+      text-shadow:
+          0 0 1px #000,
+          0 0 2px #000,
+          0 0 3px #000,
+          0 0 8px #F5F5F5,
+    }
+
+    &.syntax--other.syntax--color {
+        color: @yellow_A700;
+    }
+
+    &.syntax--other.syntax--symbol {
+        /* ???????????????? */
+        color: @deep-orange_400;
+        text-shadow: @txt-shadown;
+    }
+}
+
+.syntax--variable {
+    /*  variable-2 */
+    color: @grey_500;
+    text-shadow: @txt-shadown;
+    opacity: 0.9;
+
+    &.syntax--interpolation { color: @teal_500; /* ???????????????? */ }
+    &.syntax--parameter.syntax--function {
+     color: @teal_500;/* ???????????????? */ }
+  &.syntax--language { color: @pink_500; /* ???????????????? */ }
+
+    &.syntax--variable {
+        &.syntax--object {
+            color: @yellow_500;
+            text-shadow: @txt-shadown;
+        }
+    }
+}
+
+.syntax--invalid.syntax--illegal {
+    /* ???????????????? */
+    background-color: @yellow_500;
+
+}
+
+.syntax--string {
+    /* string con comillas */
+    color: @deep-orange_400;
+    text-shadow: @txt-shadown;
+
+    &.syntax--regexp {
+       /* ???????????????? */
+        color: @yellow_500;
+
+        .syntax--source.syntax--ruby.syntax--embedded {
+          /* ???????????????? */
+            color: @deep-orange_400;
+        }
+    }
+
+    &.syntax--other.syntax--link {
+      /* ???????????????? */
+      color: @yellow_500;
+    }
+}
+
+.syntax--punctuation {
+    &.syntax--definition {
+        &.syntax--comment {
+            color: @syntax-comment-color;
+        }
+
+        &.syntax--array,
+        &.syntax--string,
+        &.syntax--variable {
+            color: @syntax-text-color;
+
+            &.syntax--begin, &.syntax--end {
+                /* comillas */
+                color: @deep-orange_400;
+            }
+        }
+        &.syntax--parameters{
+          /* () de los parametros */
+          color: @deep-orange_400;
+          text-shadow: @txt-shadown;
+          font-family: "Roboto Bold";
+        }
+
+        &.syntax--heading,
+        &.syntax--identity {
+          /**   =??????????????????? **/
+          color: @deep-orange_400;
+          text-shadow: @txt-shadown;
+        }
+
+        &.syntax--bold {
+           /**   =??????????????????? **/
+            color: @deep-orange_400;
+            font-family: "Roboto Bold";
+        }
+
+        &.syntax--italic {
+            /**   =??????????????????? **/
+            color:  @deep-orange_400;
+            font-style: italic;
+        }
+
+        &.syntax--entity {
+          /* &.  class, id*/
+           color: @green_300;
+           font-family: "Roboto Bold", monospace;
+          //  font-size: 16px;
+          text-shadow: @txt-shadown;
+        }
+    }
+
+    &.syntax--section {
+        &.syntax--array {
+            color: @teal_500;
+        }
+
+        &.syntax--embedded {
+            color:  @teal_500;
+        }
+    }
+
+    &.syntax--separator {
+        &.syntax--key-value {
+            /*  : dos puntos */
+            color: @white;
+            font-family: "Roboto Bold";
+        }
+    }
+
+    &.syntax--terminator {
+        /* puntos y comas */
+        color: @grey_200;
+    }
+}
+
+.syntax--support {
+    &.syntax--class {
+        color: @deep-orange_400;
+    }
+
+    &.syntax--function {
+        color: @yellow_A700;
+
+        &.syntax--any-method {
+            color: @grey_400;
+        }
+    }
+
+    &.syntax--type {
+        &.syntax--property-name {
+            color: @red_A200;
+        }
+    }
+
+    &.syntax--variable {
+        &.syntax--dom {
+            color: @deep-orange_400;
+        }
+    }
+}
+
+.syntax--entity {
+    &.syntax--name {
+        &.syntax--function {
+          /* @Component, function, etc */
+          color: @grey_400;
+           font-family: "Roboto Light", monospace;
+          //  font-size: 16px;
+          border-bottom: 2px solid @grey_800;
+          text-shadow: @txt-shadown;
+        }
+
+        &.syntax--type {
+             /* clasess */
+            color: @grey_400;
+            font-family: "Roboto light";
+            font-style: sans-serif;
+            text-shadow:
+            0 0 1px @grey_400,
+            0 0 3px @grey_300,
+            0 0 10px @grey_300,
+            0 0 75px @grey_300,
+        }
+    }
+
+    &.syntax--other {
+        &.syntax--inherited-class {
+            /*  ?????????????????? */
+            color: @yellow_A700;
+            text-shadow:
+            0 0 1px #000000,
+            0 0 2px #000000,
+            0 0 3px #000000,
+            0 0 4px #000,
+            0 0 7px #000,
+            0 0 8px #000,
+            0 0 10px #000,
+            0 0 75px #000;
+        }
+
+        &.syntax--attribute-name {
+            &.syntax--pseudo-element {
+              color: @yellow_A700;
+              text-shadow:
+              0 0 1px #000000,
+              0 0 2px #000000,
+              0 0 3px #000000,
+              0 0 4px #000,
+              0 0 7px #000,
+              0 0 8px #000,
+              0 0 10px #000,
+              0 0 75px #000;
+            }
+
+            &.syntax--attribute {
+              /* ?????????????? */
+              color: @deep-orange_400;
+
+            }
+        }
+    }
+
+    &.syntax--name.syntax--class,
+    &.syntax--name.syntax--type.syntax--class {
+      /* nombre de la clase, class */
+      margin-top: 5px;
+      margin-bottom: 5px;
+      color: @blue_400;
+      font-family: "Roboto Light";
+      font-size: 18px;
+        text-shadow:
+        0 0 1px @light-blue_500,
+        0 0 3px @light-blue_500,
+        0 0 10px @light-blue_400,
+        0 0 75px @light-blue_400,
+    }
+
+    &.syntax--name.syntax--section {
+      color: @deep-orange_400;
+      text-shadow: @txt-shadown-c;
+    }
+
+    &.syntax--name.syntax--tag {
+      /* Tag */
+      color: @green_300;
+          // font-size: 16px;
+      text-shadow: @txt-shadown;
+    }
+
+    &.syntax--other.syntax--attribute-name {
+        /* name attribute, class, ids en CSS */
+            color: @green_300;
+            text-shadow: @txt-shadown;
+    }
+}
+
+.syntax--meta {
+    &.syntax--class {
+        /* class */
+        color: @grey_300;
+    }
+
+    &.syntax--delimiter {
+        &.syntax--period {
+            color: @red_A200;
+        }
+    }
+
+    &.syntax--link {
+        color: @deep-orange_400;
+    }
+
+    &.syntax--require {
+        color: @red_500;
+    }
+
+    &.syntax--selector {
+        color: @red_500;
+    }
+
+    &.syntax--separator {
+        background-color: @red_500;
+        color: @syntax-text-color;
+    }
+
+    &.syntax--brace {
+        &.syntax--round, &.syntax--square {
+            /* ( )  parentecis */
+            color: @grey_400;
+        }
+    }
+}
+
+.syntax--none {
+    color: @syntax-text-color;
+}
+
+.syntax--markup {
+    &.syntax--bold {
+        color: @grey_400;
+        font-weight: bold;
+    }
+
+    &.syntax--changed {
+        color: @deep-orange_400;
+    }
+
+    &.syntax--deleted {
+        color: @red_A400;
+    }
+
+    &.syntax--italic {
+        color: @green_500;
+        font-style: italic;
+    }
+
+    &.syntax--heading .syntax--punctuation.syntax--definition.syntax--heading {
+        color: @deep-orange_400;
+    }
+
+    &.syntax--inserted {
+        color: @grey_400;
+    }
+
+    &.syntax--list {
+        color: @red_A400;
+    }
+
+    &.syntax--quote {
+        color: @deep-orange_400;
+    }
+
+    &.syntax--raw.syntax--inline {
+        color: @grey_500;
+    }
+}
+
+.syntax--source.syntax--gfm .syntax--markup {
+    -webkit-font-smoothing: auto;
+
+    &.syntax--heading {
+        color: @deep-orange_400;
+    }
+}
+
+// Mini editor
+atom-text-editor[mini] .scroll-view {
+    padding-left: 1px;
+}
+
+// Bracket Matcher
+atom-text-editor {
+    .highlight{
+      .region.bracket-matcher {
+           z-index: inherit;
+      }
+    }
+}
+
+@keyframes caffee-bean {
+    0%{
+        background-color: @green_300;
+    }
+    50%{
+        background-color: @yellow_A700;
+    }
+    60%{
+        background-color: @red_A400;
+    }
+    100%{
+        background-color: @brown_500;
+    }
+}
+.bracket-matcher {
+  position: relative;
+}
+// .bracket-matcher .region {
+.bracket-matcher .region{
+  z-index: -9999; position: absolute;
+  left: 0px; margin-left: -10px; top: 0; margin-top: -5px;
+  color: @grey_200!important;
+  padding: 15px;
+  border-radius: 50%; border: 2px solid @grey_900;
+  opacity: 1;
+  box-shadow: 0 2px 5px 0 rgba(255, 255, 255, 0.07), 0 2px 10px 0 rgba(255, 255, 255, 0.03);
+  -webkit-animation: caffee-bean 7s alternate ease-in-out infinite;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.tree-view:focus li.syntax-.syntax--directory.selected.status-added > .list-item {
+  &::after { background-color: @syntax-vcs-added-bg; text-shadow: @txt-shadown; }
+  &::before, .syntax--name { color: @syntax-vcs-added-fg; }
+}
+
+.tree-view:focus li:not(.list-nested-item).selected.status-added,
+.tree-view:focus li.list-nested-item > .list-item.selected.status-added {
+  &::before { background-color: @syntax-vcs-added-bg; }
+  .syntax--name { color: @syntax-vcs-added-fg; }
+}
+
+.list-tree li:not(.list-nested-item):not(.tabBlender).status-added,
+.list-group li:not(.list-nested-item):not(.tabBlender).status-added,
+.list-tree li.list-nested-item > .list-item.status-added,
+.list-group li.list-nested-item > .list-item.status-added,
+.list-tree li.list-nested-item.status-added:not(.selected) > .list-item,
+.list-group li.list-nested-item.status-added:not(.selected) > .list-item {
+  color: @syntax-vcs-added-fg;
+}
+
+.tree-view:focus li.syntax--directory.selected.status-modified > .list-item {
+  &::after { background-color: @syntax-vcs-modified-bg; }
+  &::before, .syntax--name { color: @syntax-vcs-modified-fg; }
+}
+
+.tree-view:focus li:not(.list-nested-item).selected.status-modified,
+.tree-view:focus li.list-nested-item > .list-item.selected.status-modified {
+  &::before { background-color: @syntax-vcs-modified-bg; }
+  .syntax--name { color: @syntax-vcs-modified-fg; }
+}
+
+.list-tree li:not(.list-nested-item):not(.tabBlender).status-modified,
+.list-group li:not(.list-nested-item):not(.tabBlender).status-modified,
+.list-tree li.list-nested-item > .list-item.status-modified,
+.list-group li.list-nested-item > .list-item.status-modified,
+.list-tree li.list-nested-item.status-modified:not(.selected) > .list-item,
+.list-group li.list-nested-item.status-modified:not(.selected) > .list-item {
+  color: @syntax-vcs-modified-fg;
+}
+
+atom-text-editor .gutter .line-number.git-line-modified {
+  border-color: @syntax-vcs-modified-fg;
+}
