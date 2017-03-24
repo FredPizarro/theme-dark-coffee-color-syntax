@@ -1,12 +1,14 @@
 {
   "name": "coffee-color-dark-syntax",
   "theme": "syntax",
-  "version": "0.1.0",
-  "description": "Inspirate in the product coffee + Color Material ...",
+  "version": "0.1.2",
+  "description": "Inspirate in the product coffee + Color Material ... ",
   "keywords": [
     "syntax",
     "theme",
-    "Material Color"
+    "Color",
+    "Material Color",
+    "Coffe Color"
   ],
   "repository": {
     "type": "git",

@@ -2,7 +2,7 @@
 # README
 ## This is the README for your extension "theme-color-coffee"
 * Suggestions are accepted for design theme Material Color (dark) in Contact more info ...
-
+* Theme inspirate by "Material Color (dark)" (list of extension from BracketsIO).
 =======
 # Images
 
@@ -10,6 +10,8 @@
 ![HTML](http://i.imgur.com/dTsiTsk.png)
 #### view in CSS
 ![HTML](http://i.imgur.com/2afHxmd.png)
+#### view in TypeScript
+![HTML](http://i.imgur.com/qmu81lI.png)
 
 =======
 # Contact

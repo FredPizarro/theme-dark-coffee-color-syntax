@@ -1,0 +1,117 @@
+.syntax--source.syntax--ts,
+.syntax--source.syntax--tsx  {
+  color: @red_A200; font-family: "Roboto Medium";
+  text-shadow: @txt-shadown;
+
+  .syntax--import-equals,
+    .syntax--import,
+    .syntax--triple-slash {
+      .syntax--string {
+        &:hover{ background: @yellow_A700; transition:  0.25s;}
+      }
+  }
+
+  .syntax--keyword.syntax--debugger {
+     background-color: @lime_500;
+   }
+
+}
+
+.syntax--constant.syntax--language.syntax--boolean.syntax--false.syntax--ts{
+  /* false */
+  color: @grey_300;
+}
+.syntax--constant.syntax--language.syntax--boolean.syntax--true.syntax--ts{
+  /* true */
+  color: @grey_300;
+}
+
+.syntax--variable.syntax--other.syntax--object.syntax--property.syntax--ts{
+  color: @grey_600;
+}
+
+.syntax--variable.syntax--other.syntax--object.syntax--ts{
+  color: @grey_400;
+}
+
+.syntax--string.syntax--quoted.syntax--double.syntax--ts{
+  /* string */
+  color: @grey_300;
+}
+
+.syntax--punctuation.syntax--decorator.syntax--ts{
+  font-size: 16px;
+}
+
+.syntax--entity.syntax--name.syntax--function.syntax--ts{
+  color: @grey_100; font-family: "Roboto Light";
+}
+
+.syntax--string.syntax--quoted.syntax--single.syntax--ts{
+  /* objetos, text  string, @angular ...  */
+  color: @red_500; font-style: normal;
+}
+
+.syntax--keyword.syntax--control.syntax--conditional.syntax--ts{
+  /* if */
+  color: @red_A400; font-size: 16px;
+}
+
+.syntax--variable.syntax--language.syntax--this.syntax--ts{
+  // this
+  color: @grey_700;
+  font-style: italic; text-shadow: none;
+}
+
+.syntax--variable.syntax--other.syntax--readwrite.syntax--ts{
+  color: @grey_400;
+  text-shadow: @txt-shadown-c;
+}
+
+.syntax--storage.syntax--type.syntax--class.syntax--ts,
+.syntax--storage.syntax--modifier.syntax--ts {
+  /*  class, implements*/
+  color: @green_300;
+}
+
+.syntax--meta.syntax--definition.syntax--property.syntax--ts{
+  // variables
+  color: @grey_100;
+  font-family: "Roboto Thin"; font-size: 13px;
+  border-bottom: 1px solid @grey_700;
+}
+
+.syntax--variable.syntax--other.syntax--readwrite.syntax--ts{
+  color: @grey_100;
+  text-shadow: @txt-shadown;
+}
+
+.syntax--source.syntax--ts .syntax--keyword{
+  /*  Color: import, export, from ... */
+  color: @red_A200;
+  font-family: "Roboto Black", sans-serif;
+  font-size: 14px;
+
+    &.syntax--control {
+
+      &.syntax--import.syntax--ts{
+        /*  import */
+      }
+
+    }
+    //
+    // &.syntax--operator {
+    //     color: @red_A400;
+    //     // font-size: 15px;
+    //     text-shadow: none;
+    // }
+
+    &.syntax--other.syntax--special-method {
+      background: @yellow_A700;
+    }
+
+    &.syntax--other.syntax--unit {
+        background: @yellow_A700;
+    }
+
+}

@@ -1,35 +1,36 @@
-@import "syntax-variables";
+@import "colors";
 
 @txt-shadown: 0 0 1px rgba(255, 255, 255, 0.5);
 @txt-shadown-c: 0 0 0.1px rgba(255, 255, 255, 0.5);
 
+@box-shadown: 0 3px 14px 0 rgba(0, 0, 0, 0.18), 0 1px 9px 0 rgba(0, 0, 0, 0.15);
 
 
 atom-text-editor {
-    background-color: @syntax-background-color;
+    background-color: @grey_900;
     color: @grey_300;
     text-shadow: 0 0 1px rgba(0, 0, 0, 0.7);
 
     .wrap-guide {
-        background-color: @syntax-indent-guide-color;
+        background-color: @grey_400;
     }
 
     .indent-guide {
-        color: @syntax-indent-guide-color;
+        color: @grey_400;
     }
 
     .invisible-character {
-        color: @syntax-invisible-character-color;
+        color: @red_A400;
     }
 
     .cursor-line {
-        background-color: darken(@syntax-background-color, 2.5%);
+        background-color: @grey_800;
 
     }
 
     .gutter {
-        // background-color: @syntax-gutter-background-color;
-        // color: @syntax-gutter-text-color;
+        // background-color: @grey_900;
+        // color: @grey_500;
     /*Default*/
     /*
   overflow: hidden;
@@ -63,10 +64,17 @@ box-sizing: border-box;
             &.cursor-line-no-selection {
                /*  linea numero selección */
                 color: @grey_600;
-                text-shadow: @txt-shadown;
                 font-family: "Roboto Medium";
             }
         }
+
+
+        .line-number.git-line-modified {
+          // linea de codigo modificado
+          border-color: @grey_800;
+        }
+
+
     }
 
     .fold-marker:after{
@@ -74,7 +82,7 @@ box-sizing: border-box;
       font-family: 'Roboto Bold', sans-serif;
     }
     .gutter .line-number.folded{
-      color: transparent; opacity: 0.9;
+      color: @grey_900;
       font-family: 'Roboto Bold', sans-serif;
 
       .icon-right {
@@ -108,7 +116,7 @@ box-sizing: border-box;
 
 
     .invisible {
-        color: @syntax-text-color;
+        color: @grey_300;
     }
 
     .cursor {
@@ -117,12 +125,12 @@ box-sizing: border-box;
     }
 
     .selection .region {
-        background-color: @syntax-selection-color;
-        border-bottom-left-radius: 3px;
-        box-shadow: 0 2px 5px 0 rgba(255, 255, 255, 0.07),
-         0 2px 10px 0 rgba(255, 255, 255, 0.03);
+        background-color: @grey_100;
 
     }
+
+
+
 }
 
 atom-text-editor .search-results .syntax--marker {
@@ -130,20 +138,38 @@ atom-text-editor .search-results .syntax--marker {
 }
 
 atom-text-editor .search-results .syntax--marker .region {
-    // background-color: transparent;
-    background: @red_A200 !important;
+    background-color: transparent;
 }
 
 atom-text-editor .search-results .syntax--marker.current-result .region {
-    background-color: @syntax-result-marker-color-selected;
+    background-color: @red_500;
     color: #000;
     box-shadow: 0 2px 5px 0 rgba(255, 255, 255, 0.16), 0 2px 10px 0 rgba(255, 255, 255, 0.12);
-    border-bottom: 1px solid @teal_500;
+    border-bottom: 5px solid @teal_500;
 }
+
+.editor, atom-text-editor {
+  border: none;
+  /* searching */
+  .find-result .region {
+    border: 0px solid white;
+    background: @grey_200; opacity: 0.6;
+    border-radius: 50%; transition: .3s; position: absolute; margin-top: -8px;
+    padding-left: 0.5rem; padding-top: 1.6rem; padding-bottom: 1.6rem; padding-right: 0.5rem; /* x4 palabras */
+    box-shadow: 0 5px 11px 0 rgba(255, 255, 255, 0.05), 0 4px 15px 0 rgba(255, 255, 255, 0.02);
+    transition: margin 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    -webkit-tap-highlight-color: rgba(255,255,255,0);
+
+  }
+
+}
+
+
+
 
 // Syntax styles
 .syntax--comment {
-    color: @syntax-comment-color;
+    color: @grey_500;
     font-family: "Roboto Light", sans-serif;
     font-style: italic;
 }
@@ -177,7 +203,7 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
     }
 
     &.syntax--other.syntax--special-method {
-      color: @yellow_A700;
+      color: @blue_500;
       font-family: "Roboto Bold", monospace;
       //  font-size: 16px;
       text-shadow: @txt-shadown;
@@ -189,7 +215,7 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
 }
 
 .syntax--storage {
-    color: @yellow_A700;
+    color: @light-blue_500;
 }
 
 .syntax--constant {
@@ -216,7 +242,7 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
     }
 
     &.syntax--other.syntax--color {
-        color: @yellow_A700;
+        color: @light-blue_500;
     }
 
     &.syntax--other.syntax--symbol {
@@ -230,7 +256,6 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
     /*  variable-2 */
     color: @grey_500;
     text-shadow: @txt-shadown;
-    opacity: 0.9;
 
     &.syntax--interpolation { color: @teal_500; /* ???????????????? */ }
     &.syntax--parameter.syntax--function {
@@ -239,7 +264,7 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
 
     &.syntax--variable {
         &.syntax--object {
-            color: @yellow_500;
+            color: @blue_500;
             text-shadow: @txt-shadown;
         }
     }
@@ -258,7 +283,7 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
 
     &.syntax--regexp {
        /* ???????????????? */
-        color: @yellow_500;
+        color: @light-blue_500;
 
         .syntax--source.syntax--ruby.syntax--embedded {
           /* ???????????????? */
@@ -275,13 +300,13 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
 .syntax--punctuation {
     &.syntax--definition {
         &.syntax--comment {
-            color: @syntax-comment-color;
+            color: @grey_500;
         }
 
         &.syntax--array,
         &.syntax--string,
         &.syntax--variable {
-            color: @syntax-text-color;
+            color: @grey_300;
 
             &.syntax--begin, &.syntax--end {
                 /* comillas */
@@ -400,7 +425,7 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
     &.syntax--other {
         &.syntax--inherited-class {
             /*  ?????????????????? */
-            color: @yellow_A700;
+            color: @light-blue_500;
             text-shadow:
             0 0 1px #000000,
             0 0 2px #000000,
@@ -446,7 +471,7 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
         0 0 1px @light-blue_500,
         0 0 3px @light-blue_500,
         0 0 10px @light-blue_400,
-        0 0 75px @light-blue_400,
+        0 0 75px @light-blue_400;
     }
 
     &.syntax--name.syntax--section {
@@ -494,7 +519,7 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
 
     &.syntax--separator {
         background-color: @red_500;
-        color: @syntax-text-color;
+        color: @grey_300;
     }
 
     &.syntax--brace {
@@ -506,7 +531,7 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
 }
 
 .syntax--none {
-    color: @syntax-text-color;
+    color: @grey_300;
 }
 
 .syntax--markup {
@@ -574,15 +599,19 @@ atom-text-editor {
 @keyframes caffee-bean {
     0%{
         background-color: @green_300;
+         border: 2px solid @green_300;
     }
     50%{
         background-color: @yellow_A700;
+        border: 2px solid @yellow_A700;
     }
     60%{
         background-color: @red_A400;
+        border: 2px solid @red_A400;
     }
     100%{
         background-color: @brown_500;
+        border: 2px solid @brown_500;
     }
 }
 .bracket-matcher {
@@ -594,7 +623,7 @@ atom-text-editor {
   left: 0px; margin-left: -10px; top: 0; margin-top: -5px;
   color: @grey_200!important;
   padding: 15px;
-  border-radius: 50%; border: 2px solid @grey_900;
+  border-radius: 50%;
   opacity: 1;
   box-shadow: 0 2px 5px 0 rgba(255, 255, 255, 0.07), 0 2px 10px 0 rgba(255, 255, 255, 0.03);
   -webkit-animation: caffee-bean 7s alternate ease-in-out infinite;
@@ -624,14 +653,14 @@ atom-text-editor {
 
 
 .tree-view:focus li.syntax-.syntax--directory.selected.status-added > .list-item {
-  &::after { background-color: @syntax-vcs-added-bg; text-shadow: @txt-shadown; }
-  &::before, .syntax--name { color: @syntax-vcs-added-fg; }
+  &::after { background-color: @light-blue_A400; text-shadow: @txt-shadown; }
+  &::before, .syntax--name { color: @light-blue_A400; }
 }
 
 .tree-view:focus li:not(.list-nested-item).selected.status-added,
 .tree-view:focus li.list-nested-item > .list-item.selected.status-added {
-  &::before { background-color: @syntax-vcs-added-bg; }
-  .syntax--name { color: @syntax-vcs-added-fg; }
+  &::before { background-color: @red_A200; }
+  .syntax--name { color: @red_A400; }
 }
 
 .list-tree li:not(.list-nested-item):not(.tabBlender).status-added,
@@ -640,18 +669,18 @@ atom-text-editor {
 .list-group li.list-nested-item > .list-item.status-added,
 .list-tree li.list-nested-item.status-added:not(.selected) > .list-item,
 .list-group li.list-nested-item.status-added:not(.selected) > .list-item {
-  color: @syntax-vcs-added-fg;
+  color: @light-blue_A400;
 }
 
 .tree-view:focus li.syntax--directory.selected.status-modified > .list-item {
-  &::after { background-color: @syntax-vcs-modified-bg; }
-  &::before, .syntax--name { color: @syntax-vcs-modified-fg; }
+  &::after { background-color: @red_A400; }
+  &::before, .syntax--name { color: @light-blue_A400; }
 }
 
 .tree-view:focus li:not(.list-nested-item).selected.status-modified,
 .tree-view:focus li.list-nested-item > .list-item.selected.status-modified {
-  &::before { background-color: @syntax-vcs-modified-bg; }
-  .syntax--name { color: @syntax-vcs-modified-fg; }
+  &::before { border: 2px solid @green_300; text-shadow: @txt-shadown; }
+  .syntax--name { color: @red_A400; }
 }
 
 .list-tree li:not(.list-nested-item):not(.tabBlender).status-modified,
@@ -660,9 +689,162 @@ atom-text-editor {
 .list-group li.list-nested-item > .list-item.status-modified,
 .list-tree li.list-nested-item.status-modified:not(.selected) > .list-item,
 .list-group li.list-nested-item.status-modified:not(.selected) > .list-item {
-  color: @syntax-vcs-modified-fg;
+  color: @grey_500; font-family: "Roboto Bold";
 }
 
-atom-text-editor .gutter .line-number.git-line-modified {
-  border-color: @syntax-vcs-modified-fg;
+
+
+.tree-view{
+  /* barra de listado de carpetas y archivos */
+  background: @grey_900;
+  li{
+    background: @grey_900;
+  }
+}
+
+.tree-view-scroller {
+    // scroll de la barra
+    background: @grey_800;
+
+}
+
+
+
+/*
+*  Trabajando con carpetas, sub-carpetas
+*/
+
+.list-item.project-root-header {
+  /* barra de la carpeta, nombre del projecto */
+  background: @grey_900;
+  color: @grey_100; font-size: 16px;
+  box-shadow: 0 3px 14px 0 rgba(0, 0, 0, 0.18), 0 1px 9px 0 rgba(0, 0, 0, 0.15);
+  margin-left: -4px; margin-top: -1px;
+  pointer-events: none;
+  cursor: default;
+  border: 2px solid @grey_800;
+  border-bottom-right-radius: 10px;
+  margin-bottom: 10px;
+
+  &::before{
+    // icon desaparecer al lado izquierdo  >
+    // left: -20px;
+    // transition: .3s;
+    color: @grey_900;
+    background: @grey_900;
+    border: 2px solid @green_600;border-radius: 50%; opacity: 0.7;
+  }
+
+  .icon-repo{
+    /* texto */
+    color: @grey_500;
+    text-shadow: @txt-shadown !important;
+  }
+
+}
+
+.list-tree.has-collapsable-children{
+    .list-nested-item.collapsed > .list-item::before {
+     color: @grey_600;
+     background: @grey_600;
+     border-radius: 50%;
+     border: 1px solid @grey_600;
+     transition: .3s;
+     padding: 0px;
+     padding-left: 0.08rem; padding-right: 0.08rem;
+     padding-top: 0.01rem; padding-bottom: 0.01rem;
+     box-shadow: 0 3px 14px 0 rgba(0, 0, 0, 0.18), 0 1px 9px 0 rgba(0, 0, 0, 0.15);
+
+   }
+
+   .list-nested-item > .list-item::before{
+      color: @grey_900;
+      background: @grey_900;
+      text-shadow: none;
+      border: 2px solid @grey_600;border-radius: 50%; opacity: 0.7;
+      transition: .25s;
+      box-shadow: @box-shadown;
+    }
+
+}
+
+
+.list-group li:not(.list-nested-item):not(.tabBlender),
+ .list-tree li.list-nested-item > .list-item,
+  .list-group li.list-nested-item > .list-item {
+    color: @grey_700 !important;
+}
+
+
+.list-tree li:not(.list-nested-item):not(.tabBlender).status-added,
+ .list-group li:not(.list-nested-item):not(.tabBlender).status-added,
+  .list-tree li.list-nested-item > .list-item.status-added,
+   .list-group li.list-nested-item > .list-item.status-added{
+  /*  archivo: .gitignore , etc ... */
+  color: @grey_700 !important;
+  font-family: "Roboto Light"; font-style: italic;
+}
+
+.list-tree li:not(.list-nested-item):not(.tabBlender).status-modified,
+ .list-group li:not(.list-nested-item):not(.tabBlender).status-modified,
+  .list-tree li.list-nested-item > .list-item.status-modified,
+   .list-group li.list-nested-item > .list-item.status-modified {
+    /*Archives necesarios*/
+    color: @grey_600 !important;
+}
+
+.list-tree li:not(.list-nested-item):not(.tabBlender),
+ .list-group li:not(.list-nested-item):not(.tabBlender),
+  .list-tree li.list-nested-item > .list-item,
+   .list-group li.list-nested-item > .list-item {
+    /*archives otros*/
+    color: @grey_700 !important; font-family: "Roboto Light";
+}
+
+.list-tree li:not(.list-nested-item):not(.tabBlender).selected::before {
+  /* Archivo seleccionado */
+  background-color: @grey_800 !important;
+}
+
+
+
+/* Panel parte de abajo */
+.tool-panel, .panel, atom-panel {
+    background-color: #000000 !important;
+
+    *{
+      color: @grey_600 !important;
+      text-shadow: @txt-shadown;
+    }
+}
+
+
+/* tabs */
+.tab-bar{
+  // border-top: 5px solid @teal_500;
+  // background: #000000 !important;
+
+  *{
+    // background: @grey_200;
+    color: @grey_400;
+    font-size: 12px;
+    // box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08),
+    //            0 1px 1px 0 rgba(0, 0, 0, 0.15);
+  }
+
+
+  .close-icon{
+    color: @red_A400 !important;
+    background: @red_A400 !important;
+    border-radius: 50% !important;
+    border: 1px solid @red_A400;
+    transition: .3s;
+    margin: -2px;
+    padding: 0px; display: inline-flex;
+    padding-left: 0.08rem; padding-right: 0.08rem;
+    padding-top: 0.01rem; padding-bottom: 0.01rem;
+    box-shadow: 0 3px 14px 0 rgba(0, 0, 0, 0.18), 0 1px 9px 0 rgba(0, 0, 0, 0.15);
+
+  }
+
 }
