@@ -1,3 +1,6 @@
+## 0.2.0
+* publish monor
+
 ## 0.1.2
 * Color icon list project.
 * Pane and Tab color, icon, icon close color.
