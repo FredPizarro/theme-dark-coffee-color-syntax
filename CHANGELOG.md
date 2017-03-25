@@ -1,5 +1,10 @@
+## 0.3.0
+* Minimap color converter in scroll.
+* scroll width and height mini.
+* fixed color syntax.
+
 ## 0.2.0
-* publish monor
+* publish minor
 
 ## 0.1.2
 * Color icon list project.

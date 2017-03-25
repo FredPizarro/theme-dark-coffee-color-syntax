@@ -596,22 +596,37 @@ atom-text-editor {
     }
 }
 
-@keyframes caffee-bean {
+@keyframes coffee-bean {
     0%{
         background-color: @green_300;
          border: 2px solid @green_300;
+         opacity: 0.8;
     }
-    50%{
+    30%{
         background-color: @yellow_A700;
         border: 2px solid @yellow_A700;
+        opacity: 0.8;
+    }
+    45%{
+      opacity: 0.3;
     }
     60%{
         background-color: @red_A400;
         border: 2px solid @red_A400;
+        opacity: 0.7;
     }
-    100%{
+    75%{
+      opacity: 0.3;
+    }
+    90%{
         background-color: @brown_500;
         border: 2px solid @brown_500;
+        opacity: 0.8;
+    }
+    100%{
+      background-color: @green_300;
+       border: 2px solid @green_300;
+       opacity: 0.8;
     }
 }
 .bracket-matcher {
@@ -619,24 +634,14 @@ atom-text-editor {
 }
 // .bracket-matcher .region {
 .bracket-matcher .region{
-  z-index: -9999; position: absolute;
   left: 0px; margin-left: -10px; top: 0; margin-top: -5px;
   color: @grey_200!important;
   padding: 15px;
   border-radius: 50%;
   opacity: 1;
   box-shadow: 0 2px 5px 0 rgba(255, 255, 255, 0.07), 0 2px 10px 0 rgba(255, 255, 255, 0.03);
-  -webkit-animation: caffee-bean 7s alternate ease-in-out infinite;
-
+  -webkit-animation: coffee-bean 20s alternate ease-in-out infinite;
 }
-
-
-
-
-
-
-
-
 
 
 
@@ -845,6 +850,38 @@ atom-text-editor {
     padding-top: 0.01rem; padding-bottom: 0.01rem;
     box-shadow: 0 3px 14px 0 rgba(0, 0, 0, 0.18), 0 1px 9px 0 rgba(0, 0, 0, 0.15);
 
+  }
+
+}
+
+
+
+
+
+// scrool
+.horizontal-scrollbar{
+  background: @grey_900 !important;
+  width: 50px;
+  opacity: 0.3;
+  visibility: visible;
+  &:hover{ opacity: 1; }
+}
+.vertical-scrollbar{
+  height: 50px;   opacity: 0.3;
+  &:hover{ opacity: 1; }
+}
+
+// opacity
+.minimap-visible-area{
+  background-color: @teal_500;
+  width: 100%;
+  border-left: 5px solid @teal_A700;
+  position: absolute;
+  opacity: 0.3;
+
+  &:hover{
+      opacity: 0.9;
+      transition: 250ms;
   }
 
 }
