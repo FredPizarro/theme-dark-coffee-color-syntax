@@ -1,3 +1,6 @@
+## 0.4.0
+* update version.
+
 ## 0.3.2
 * color syntax corrected.
 * Minimap color + border color corrected.
