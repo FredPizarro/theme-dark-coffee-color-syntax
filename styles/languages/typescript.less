@@ -26,6 +26,18 @@
   color: @grey_300;
 }
 
+/* punto */
+.syntax--constant.syntax--numeric.syntax--decimal.syntax--ts
+.syntax--meta.syntax--delimiter.syntax--decimal.syntax--period.syntax--ts{
+  margin-left: 1px; margin-right: 1px;
+  &:before{
+    position: absolute; margin-top: 13px;
+    border-radius: 50%;
+    content: ''; background: @grey_500; opacity: 0.7;
+    padding: 2px;
+  }
+}
+
 .syntax--variable.syntax--other.syntax--object.syntax--property.syntax--ts{
   color: @grey_600;
 }
@@ -116,6 +128,16 @@
 
 }
 
+/* '' */
+.syntax--punctuation.syntax--definition.syntax--string.syntax--begin.syntax--ts{
+  margin-left: 2px; margin-right: 2px;
+}
+/* ( ) PARENTESIS  de métodos*/
+.syntax--punctuation.syntax--definition.syntax--parameters.syntax--begin.syntax--ts,
+.syntax--punctuation.syntax--definition.syntax--parameters.syntax--end.syntax--ts{
+  margin-left: 1px; margin-right: 1px;
+}
+
  /* ( ) PARENTESIS */
 .syntax--meta.syntax--brace.syntax--round.syntax--ts{
   margin-left: 2px; margin-right: 2px;
@@ -123,5 +145,10 @@
 
  /* {} llaves */
 .syntax--punctuation.syntax--definition.syntax--block.syntax--ts{
+  margin-left: 2px; margin-right: 2px;
+}
+
+/* */
+.syntax--meta.syntax--brace.syntax--square.syntax--ts{
   margin-left: 2px; margin-right: 2px;
 }

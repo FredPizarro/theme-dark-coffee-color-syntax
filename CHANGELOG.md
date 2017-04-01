@@ -1,3 +1,8 @@
+## 0.3.1
+* fixed margin space in syntax ('', "", [], {}, ())
+* fixed point size ( . ) color circle point decimal.
+* color syntax corrected ! ...
+
 ## 0.3.0
 * Minimap color converter in scroll.
 * scroll width and height mini.
