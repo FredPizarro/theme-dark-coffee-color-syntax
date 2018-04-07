@@ -1,0 +1,78 @@
+.syntax--js {
+    .syntax--constant {
+        color: @grey_300;
+
+    }
+
+    .syntax--support {
+        &.syntax--variable {
+            &.syntax--property {
+                color: @grey_400;
+            }
+        }
+    }
+
+    .syntax--entity {
+        &.syntax--name {
+            &.syntax--type {
+                color: @deep-orange_400;
+            }
+        }
+    }
+
+    .syntax--variable {
+        &.syntax--property {
+            color: @blue_500;
+        }
+        &.syntax--other.syntax--object {
+            color: @grey_500;
+        }
+    }
+
+    .syntax--constant {
+        &.syntax--numeric {
+            color: @red_A400;
+        }
+
+        &.syntax--boolean {
+            color: @green_300;
+        }
+    }
+}
+
+.syntax--meta.syntax--delimiter.syntax--method.syntax--period.syntax--js{
+  /* puntitos en method */
+      color: @grey_500;
+      // font-size: 15px;
+      text-shadow:
+          0 0 1px @grey_400,
+          0 0 2px #000000,
+          0 0 3px #000000,
+          0 0 4px #000,
+          0 0 7px #000,
+          0 0 75px @grey_400;
+}
+.syntax--meta.syntax--delimiter.syntax--property.syntax--period.syntax--js{
+  /* punto en property */
+  color: @grey_400;
+  // font-size: 15px;
+  text-shadow:
+      0 0 1px @grey_400,
+      0 0 2px #000000,
+      0 0 3px #000000,
+      0 0 4px #000,
+      0 0 7px @grey_400,
+      0 0 75px @grey_400;
+}
+.syntax--storage.syntax--type.syntax--var.syntax--js{
+  /* var */
+  color: @green_400;
+  font-family: "SCP Regular" !important; font-size: 16px; letter-spacing: -2px;
+}
+
+
+.syntax--punctuation.syntax--definition.syntax--arguments.syntax--begin.syntax--bracket.syntax--round.syntax--js,
+.syntax--punctuation.syntax--definition.syntax--arguments.syntax--end.syntax--bracket.syntax--round.syntax--js{
+  color: @amber_500; font-family: "Roboto Medium", sans-serif !important;
+  text-shadow: @txt-shadown;
+}

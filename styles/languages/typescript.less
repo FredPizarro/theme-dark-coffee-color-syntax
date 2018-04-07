@@ -1,0 +1,205 @@
+.syntax--source.syntax--ts,
+.syntax--source.syntax--tsx  {
+  color: @red_A200; font-family: 'Roboto Medium', sans-serif !important;
+  text-shadow: @txt-shadown;
+
+  .syntax--import-equals,
+    .syntax--import,
+    .syntax--triple-slash {
+      .syntax--string {
+        &:hover{ background: @yellow_A700; transition:  0.25s;}
+      }
+  }
+
+  .syntax--keyword.syntax--debugger {
+     background-color: @lime_500;
+   }
+
+}
+
+.syntax--constant.syntax--language.syntax--boolean.syntax--false.syntax--ts{
+  /* false */
+  color: @grey_300;
+}
+.syntax--constant.syntax--language.syntax--boolean.syntax--true.syntax--ts{
+  /* true */
+  color: @grey_300;
+}
+
+/* punto */
+.syntax--constant.syntax--numeric.syntax--decimal.syntax--ts
+.syntax--meta.syntax--delimiter.syntax--decimal.syntax--period.syntax--ts{
+  margin-left: 1px; margin-right: 1px;
+  &:before{
+    position: absolute; margin-top: 13px;
+    border-radius: 50%;
+    content: ''; background: @grey_500; opacity: 0.7;
+    padding: 2px;
+  }
+}
+
+.syntax--variable.syntax--other.syntax--object.syntax--property.syntax--ts{
+  color: @grey_600;
+}
+
+.syntax--variable.syntax--other.syntax--object.syntax--ts{
+  color: @grey_400;
+}
+
+.syntax--string.syntax--quoted.syntax--double.syntax--ts{
+  /* string */
+  color: @grey_300;
+}
+
+.syntax--punctuation.syntax--decorator.syntax--ts{
+  font-size: 16px;
+}
+
+.syntax--entity.syntax--name.syntax--function.syntax--ts{
+  color: @grey_100; font-family: 'Roboto Light', sans-serif !important;
+}
+
+.syntax--string.syntax--quoted.syntax--single.syntax--ts{
+  /* objetos, text  string, @angular ...  */
+  color: @red_500; font-style: normal;
+}
+
+.syntax--keyword.syntax--control.syntax--conditional.syntax--ts{
+  /* if */
+  color: @red_500; font-size: 16px; font-family: 'SCP Semibold';letter-spacing: -3px;
+}
+
+.syntax--variable.syntax--language.syntax--this.syntax--ts{
+  // this
+  color: @grey_700;
+  font-family: 'SCP Italic'; text-shadow: none;letter-spacing: -2px; margin-right: 1px;
+}
+
+.syntax--variable.syntax--other.syntax--readwrite.syntax--ts{
+  color: @grey_400;
+  text-shadow: @txt-shadown-c;
+}
+
+.syntax--storage.syntax--type.syntax--class.syntax--ts,
+.syntax--storage.syntax--modifier.syntax--ts {
+  /*  class, implements*/
+  color: @green_300;
+}
+
+.syntax--meta.syntax--definition.syntax--property.syntax--ts{
+  // variables
+  color: @grey_100;
+  font-family: 'Roboto Thin', sans-serif !important; font-size: 13px;
+  border-bottom: 1px solid @grey_700;
+}
+
+.syntax--variable.syntax--other.syntax--readwrite.syntax--ts{
+  color: @grey_100;
+  text-shadow: @txt-shadown;
+}
+
+.syntax--source.syntax--ts .syntax--keyword{
+  /*  Color: import, export, from ... */
+  color: @red_A200;
+  font-family: 'Roboto Black', sans-serif;
+  font-size: 14px;
+
+    &.syntax--control {
+
+      &.syntax--import.syntax--ts{
+        /*  import */
+      }
+
+    }
+    //
+    // &.syntax--operator {
+    //     color: @red_A400;
+    //     // font-size: 15px;
+    //     text-shadow: none;
+    // }
+
+    &.syntax--other.syntax--special-method {
+      background: @yellow_A700;
+    }
+
+    &.syntax--other.syntax--unit {
+        background: @yellow_A700;
+    }
+
+}
+
+/* '    ' */
+.syntax--punctuation.syntax--definition.syntax--string.syntax--begin.syntax--ts,
+.syntax--punctuation.syntax--definition.syntax--string.syntax--end.syntax--ts {
+  font-family: 'SCP Medium';
+}
+/* ( ) PARENTESIS  de métodos*/
+.syntax--punctuation.syntax--definition.syntax--parameters.syntax--begin.syntax--ts,
+.syntax--punctuation.syntax--definition.syntax--parameters.syntax--end.syntax--ts{
+  margin-left: 1px; margin-right: 1px;
+}
+
+ /* ( ) PARENTESIS */
+.syntax--meta.syntax--brace.syntax--round.syntax--ts{
+  margin-left: 2px; margin-right: 2px;
+}
+
+ /* {} llaves */
+.syntax--punctuation.syntax--definition.syntax--block.syntax--ts{
+  margin-left: 1px; margin-right: 1px; font-family: 'SCP Bold';
+}
+
+/* */
+.syntax--meta.syntax--brace.syntax--square.syntax--ts{
+  margin-left: 2px; margin-right: 2px;
+}
+
+/*error TS detect*/
+.highlight-error{
+  color: @grey_100 !important;
+  background: @red_A200 !important;
+}
+
+/*ERROR CIRCLE*/
+// .linter-highlight.linter-error.linter-gutter:before {
+//   content: '~'; position: absolute; font-family: "SCP Black";
+//   margin-left: -6px; margin-top: 4px;
+//   color: @red_A200 !important;
+// }
+/*table> body error*/
+/*Table error typescript*/
+.sb-table.linter thead {
+    background-color: @red_700;
+    tr{
+      th{ color: @red_100 !important; font-family: 'SCP Black'; font-style: italic; }
+    }
+}
+.sb-table.linter tbody {
+    tr{
+      td{ font-family: 'SCP Regular' !important;
+       &:nth-child(3){ color:@red_A200 !important; border-bottom:  1px solid @red_900 !important; }
+     }
+    }
+}
+
+.syntax--keyword.syntax--operator.syntax--expression.syntax--delete.syntax--ts{
+  /* delete operator removes a property from an object*/
+  font-family: 'SCP Bold' !important; letter-spacing: -1.5px;
+  margin-right: 2px;
+  text-shadow:
+      0 0 1px #212121,
+      0 0 2px #000000,
+      0 0 3px #000000,
+      0 0 4px #000,
+      0 0 7px #000,
+      0 0 75px #fff;
+}
+
+.syntax--markup.syntax--underline.syntax--link.syntax--https.syntax--hyperlink{
+  /* url http */
+  border-bottom: 1px solid @grey_500;
+}
+
+.syntax-meta.syntax--separator{
+  background: none;
+}

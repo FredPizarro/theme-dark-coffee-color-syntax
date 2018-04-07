@@ -1,0 +1,21 @@
+{
+  "name": "coffee-color-dark-syntax",
+  "theme": "syntax",
+  "version": "1.0.1",
+  "description": "Inspirate in the product coffee + Color Material ... ",
+  "keywords": [
+    "syntax",
+    "theme",
+    "Color",
+    "Material Color",
+    "Coffe Color"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FredPizarro/theme-dark-coffee-color-syntax.git"
+  },
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  }
+}
