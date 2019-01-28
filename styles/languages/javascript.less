@@ -31,7 +31,10 @@
 
     .syntax--constant {
         &.syntax--numeric {
-            color: @red_A400;
+             /* Numeritos */
+            color: @red_A100;
+            text-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+            font-family: 'Roboto Light';
         }
 
         &.syntax--boolean {
@@ -75,4 +78,16 @@
 .syntax--punctuation.syntax--definition.syntax--arguments.syntax--end.syntax--bracket.syntax--round.syntax--js{
   color: @amber_500; font-family: "Roboto Medium", sans-serif !important;
   text-shadow: @txt-shadown;
+}
+
+.syntax--entity.syntax--name.syntax--type.syntax--object.syntax--console.syntax--js{
+  text-shadow: 0 0 1px #bdbdbd, 0 0 75px #e0e0e0;
+  color: #546E7A; opacity: 0.8;
+}
+.syntax--variable.syntax--parameter.syntax--function.syntax--js{
+  color: #FF7043;
+}
+
+.syntax--storage.syntax--type.syntax--var.syntax--js{
+  color: #03a9f4;
 }

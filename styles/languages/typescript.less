@@ -1,7 +1,17 @@
+.syntax--string{
+  // color: @red_A200;
+  //   opacity: 1;
+  //   font-family: 'Roboto Thin', sans-serif;
+  //   text-shadow: 0 0 1px #000, 0 0 2px #000, 0 0 3px #000, 0 0 8px #F5F5F5;
+  font-family: 'SCP Regular', monospace;
+
+}
+
+
 .syntax--source.syntax--ts,
 .syntax--source.syntax--tsx  {
   color: @red_A200; font-family: 'Roboto Medium', sans-serif !important;
-  text-shadow: @txt-shadown;
+  text-shadow: 0 1px 0px rgba(255, 255, 255, 0.2);
 
   .syntax--import-equals,
     .syntax--import,
@@ -45,6 +55,15 @@
 .syntax--variable.syntax--other.syntax--object.syntax--ts{
   color: @grey_400;
 }
+
+/* Trabajando en el constructor */
+.syntax--support.syntax--storage.syntax--type{
+  font-family: 'Lobster', cursive;
+  font-size: 16px;
+  text-shadow: none;
+}
+
+
 
 .syntax--string.syntax--quoted.syntax--double.syntax--ts{
   /* string */
@@ -137,16 +156,28 @@
 .syntax--punctuation.syntax--definition.syntax--parameters.syntax--begin.syntax--ts,
 .syntax--punctuation.syntax--definition.syntax--parameters.syntax--end.syntax--ts{
   margin-left: 1px; margin-right: 1px;
+  font-family: monospace;
+}
+
+/* [ ] BRACKETS */
+.syntax--punctuation.syntax--definition.syntax--array.syntax--begin.syntax--bracket.syntax--square,
+.syntax--punctuation.syntax--definition.syntax--array.syntax--end.syntax--bracket.syntax--square{
+  font-family: "SCP Semibold", monospace;
+  font-size: 16px;
+  text-shadow: none !important;
 }
 
  /* ( ) PARENTESIS */
 .syntax--meta.syntax--brace.syntax--round.syntax--ts{
-  margin-left: 2px; margin-right: 2px;
+  margin-left: 4px; margin-right: 4px;
+  font-family: monospace;
+  // text-shadow: none !important;
 }
 
  /* {} llaves */
 .syntax--punctuation.syntax--definition.syntax--block.syntax--ts{
   margin-left: 1px; margin-right: 1px; font-family: 'SCP Bold';
+  // text-shadow: none !important;
 }
 
 /* */
@@ -202,4 +233,10 @@
 
 .syntax-meta.syntax--separator{
   background: none;
+}
+
+/* Caja de auto ayuda o tooltip de guia de TypeScript */
+.atom-typescript-tooltip div{
+  background: @light-blue_A700 !important;
+  color: rgba(255,255,255,.87) !important;
 }

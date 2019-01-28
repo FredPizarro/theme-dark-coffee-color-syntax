@@ -716,6 +716,7 @@ atom-text-editor {
   li{
     background: @grey_900;
   }
+
 }
 
 .tree-view-scroller {
@@ -766,11 +767,10 @@ atom-text-editor {
         // width: 0; height: 0;
         // border: 2px solid red;
     }
+
   }
 
 }
-
-
 
 /* Seleccionar carpeta */
 .tree-view:focus .selected:before{
@@ -779,9 +779,30 @@ atom-text-editor {
   box-shadow:0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
 }
 
-
 //carpetas icono open/close (bolita)
 .list-tree.has-collapsable-children{
+
+    // /* Test */
+    // &::before{
+    //   position: absolute;
+    //   content: '....';
+    //   width: 20px; height: 10px;
+    //   // background: url('atom://coffee-color-dark-syntax/icons/ic_devices_other_black_24px.svg') no-repeat;
+    //   // background-size: 10px 10px;
+    //   // border: 2px solid red;
+    //   top: 33px; left: 10px;
+    // }
+    // &::after{
+    //   position: absolute;
+    //   content: '.\A .\A. \A. .\A .\A .\A';
+    //   line-height: 3px;
+    //   width: 5px; height: 10px;
+    //   // background: url('atom://coffee-color-dark-syntax/icons/ic_points.svg') no-repeat;
+    //   // background-size: 100% 100%;
+    //   // border: 2px solid red;
+    //   top: 19px; left: 10px;
+    // }
+
     .list-nested-item.collapsed > .list-item::before {
      color: @grey_600;
      background: @grey_600;
@@ -926,10 +947,10 @@ atom-text-editor {
 
 }
 
-// texteditor tab sortable active modified{
+// .texteditor.tab.sortable.active.modified,
+// .tab-bar .tab.active[data-type$="Editor"]{
 //
 // }
-
 
 
 // scrool
