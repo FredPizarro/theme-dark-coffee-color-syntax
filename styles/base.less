@@ -57,14 +57,23 @@ box-sizing: border-box;
           position: relative;
           border-right: 1px solid @grey_800;
 
+
             &.cursor-line {
               /*Seleccionar varias lineas*/
               color: @teal_600;
               background: transparent;
-              opacity: 1.0 !important;
+              opacity: 1 !important;
               text-shadow: 0 0 1px @teal_500;
               font-family: 'Roboto Medium';
+              border-right: none;
 
+              /* acomodando linea de seleccion */
+              &::before{
+                content: ''; width: 3px; height: 100%;
+                position: absolute;
+                background: @grey_800;
+                margin-left: 40px;
+              }
             }
 
             &.cursor-line-no-selection {
@@ -1112,7 +1121,7 @@ ul.list-inline.tab-bar.inset-panel{
         transition: width .35s;
     }
     &:hover::after {
-        width: 150%;
+        width: 200%;
         //transition: width .3s;
     }
 
