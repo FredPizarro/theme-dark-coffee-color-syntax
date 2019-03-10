@@ -5,6 +5,6 @@ import { Component } from '@angular/core';
   template: `<h1> Hola mundo </h1>`;
 })
 export class HeaderComponent{
-
+ 
   let numerito: number = 123;
 }

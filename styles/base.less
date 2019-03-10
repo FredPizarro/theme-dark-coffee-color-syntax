@@ -33,12 +33,12 @@ atom-text-editor {
     }
 
     .gutter {
-        // background-color: @grey_900;
+        // background-color: @grey_800;
         // color: @grey_500;
     /*Default*/
     /*
   overflow: hidden;
-z-index: 0;
+// z-index: 0;
 text-align: right;
 cursor: default;
 min-width: 1em;
@@ -49,26 +49,29 @@ box-sizing: border-box;
          /* color de linea  */
         // background: @grey_900;
         color: @grey_500;
-        border-right: 1px solid @black;
+        // border-right: 1px solid @grey_800;
         font-family: 'Roboto Light', sans-serif;
 
         .line-number {
           opacity: 1.0 !important;
           position: relative;
+          border-right: 1px solid @grey_800;
 
             &.cursor-line {
               /*Seleccionar varias lineas*/
-              color: @grey_500;
+              color: @teal_600;
               background: transparent;
               opacity: 1.0 !important;
-              text-shadow: @txt-shadown;
+              text-shadow: 0 0 1px @teal_500;
               font-family: 'Roboto Medium';
+
             }
 
             &.cursor-line-no-selection {
                /*  linea numero selección */
                 color: @grey_600;
                 font-family: 'Roboto Medium';
+                text-shadow: @txt-shadown;
             }
         }
 
@@ -81,25 +84,33 @@ box-sizing: border-box;
 
     }
 
+    /* color folder */
     .fold-marker:after{
       color: @red_500;
       font-family: 'Octicons Regular';
       content: "\f103\f103\f103";
       font-size: 1.2em;
       vertical-align: inherit;
-      letter-spacing: 1px; padding: 1px;
-      padding-left: 4px; padding-right: 4px;
+      letter-spacing: 1px; padding-bottom: 2px;
+      padding-left: 5px; padding-right: 4px;
       border: 1px solid @grey_800; border-radius: 5px;
       background-color: @grey_500;
       color: @grey_500;
       box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.14), 0 2px 10px 0 rgba(0, 0,0, 0.10);
       opacity: 0.9 !important; /* Default corregido */
     }
-
+    // .gutter{
+    //   // display: none;
+    //   background: transparent;
+    //   cursor: default;
+    //   border: none;
+    // }
+    //
     .gutter .line-number.folded{
       color: @grey_900;
       font-family: 'Roboto Bold', sans-serif;
 
+      /* bolita icon - yellow minimizador de <code> */
       .icon-right {
           position: absolute;
           left: 12px;
@@ -108,8 +119,8 @@ box-sizing: border-box;
           padding-left: 8px; padding-right: 6px;
           border: 1px solid @yellow_500; border-radius: 50%;
           background-color: @yellow_500;
-          color: #000000;
-          box-shadow: 0 2px 5px 0 rgba(255, 255, 255, 0.14), 0 2px 10px 0 rgba(255, 255,255, 0.10);
+          color: @grey_900;
+          box-shadow: 0 2px 3px 0 rgba(255, 255, 255, 0.10), 0 2px 10px 0 rgba(255, 255,255, 0.06);
           transition: margin 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
           display: inline-block; /* Default */
@@ -139,13 +150,21 @@ box-sizing: border-box;
         border-left: 2px solid @red_500 !important;
     }
 
+    /* Seleccionar varias lineas */
     .selection .region {
         background-color: @grey_100;
-
     }
 
 
 
+}
+
+atom-text-editor.editor .linter-row{
+  /* Seleccionar linea color del espaciado entre el listado de numeros y el code */
+  background: transparent;
+  // border-left: 16px solid black;
+  // border-top: 10px solid transparent;
+  // border-bottom: 10px solid transparent;
 }
 
 atom-text-editor .search-results .syntax--marker {
@@ -391,7 +410,7 @@ atom-text-editor .search-results .syntax--marker.current-result .region {
     }
 
     &.syntax--function {
-        color: @yellow_A700;
+        color: @yellow_500;
 
         &.syntax--any-method {
             color: @grey_400;
@@ -647,17 +666,20 @@ atom-text-editor {
   position: relative;
 }
 .bracket-matcher .region{
-  left: 0px; margin-left: -9px; top: 0; margin-top: -2px;
+  left: 0px; margin-left: -1.35%; top: 0; margin-top: -0.35%;
   color: @grey_200!important;
   padding: 12px;
   border-radius: 50%;
-  opacity: 1;
+  // opacity: 1;
   box-shadow: 0 2px 5px 0 rgba(255, 255, 255, 0.07), 0 2px 10px 0 rgba(255, 255, 255, 0.03);
   -webkit-animation: coffee-bean 20s alternate ease-in-out infinite;
 }
 
 
+.bracket-matcher .region::after{
 
+
+}
 
 
 
@@ -695,9 +717,30 @@ atom-text-editor {
   &::before, .syntax--name { color: @light-blue_A400; }
 }
 
+//
+.tree-view:focus li{ position: relative; }
 .tree-view:focus li:not(.list-nested-item).selected.status-modified,
 .tree-view:focus li.list-nested-item > .list-item.selected.status-modified {
-  &::before { border: 2px solid @green_300; text-shadow: @txt-shadown; }
+  &::before {
+    // border: 2px solid @red_300;
+    // text-shadow: @txt-shadown;
+    // file select Project
+    // background: @deep-orange_600 !important;
+    // background: @teal_700 !important;
+    text-shadow: none !important;
+     opacity: 1 !important;
+
+   }
+   &::after{
+     content: '';
+     position: absolute;
+     top: 0; left: 0;
+     width: 2px;
+     height: 2.02em;
+     background: @teal_700;
+     border-top-left-radius: 3px;
+     border-bottom-left-radius: 3px;
+   }
   .syntax--name { color: @red_A400; }
 }
 
@@ -723,6 +766,11 @@ atom-text-editor {
     // scroll de la barra
     background: @grey_800;
 
+}
+
+/* barra scrollbar del listado de archivos */
+.tool-panel.tree-view::-webkit-scrollbar-thumb{
+  background: @grey_800;
 }
 
 
@@ -781,7 +829,7 @@ atom-text-editor {
 
 //carpetas icono open/close (bolita)
 .list-tree.has-collapsable-children{
-
+  position: relative;
     // /* Test */
     // &::before{
     //   position: absolute;
@@ -804,6 +852,7 @@ atom-text-editor {
     // }
 
     .list-nested-item.collapsed > .list-item::before {
+      color: transparent !important;/* icon molesto del minimizar folder */
      color: @grey_600;
      background: @grey_600;
      border-radius: 50%;
@@ -819,7 +868,7 @@ atom-text-editor {
 
     /* bolita */
    .list-nested-item > .list-item::before{
-      color:transparent;
+      color:transparent; /* icon molesto del minimizar folder */
       color: @grey_900;
       background: @grey_900;
       height: 19px !important;
@@ -829,10 +878,15 @@ atom-text-editor {
       border: 2px solid @grey_600;border-radius: 50%; opacity: 0.7;
       transition: .25s;
       box-shadow: @box-shadown;
+      content: "";
+    }
+    /* icon molesto del minimizar folder */
+    .list-nested-item > .list-item:active,
+    .list-nested-item > .list-item:target{
+      content: "" !important;
     }
 
 }
-
 
 
 .list-group li:not(.list-nested-item):not(.tabBlender),
@@ -888,24 +942,14 @@ atom-text-editor {
 /* tabs */
 .tab-bar{
   // border-top: 5px solid @teal_500;
-  // background: #000000 !important;
 
   *{
     // background: @grey_200;
-    color: @grey_400;
+    color: @grey_500;
     font-size: 12px;
-    // box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.08),
-    //            0 1px 1px 0 rgba(0, 0, 0, 0.15);
-  }
-
-  .syntax--tab{
-
-    .syntax--title{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 2px !important;
-
+    // height: 100%;
+    &:hover{
+      color: @grey_300;
     }
   }
 
@@ -921,7 +965,6 @@ atom-text-editor {
     padding-left: 0.08rem; padding-right: 0.08rem;
     padding-top: 0.01rem; padding-bottom: 0.01rem;
     box-shadow: 0 3px 14px 0 rgba(0, 0, 0, 0.18), 0 1px 9px 0 rgba(0, 0, 0, 0.15);
-
   }
 
   /* icon del paquete icono */
@@ -934,16 +977,42 @@ atom-text-editor {
   .active[data-type$="Editor"]{
     // margin: 0px;
     // padding: 3px 2em 3px 12px;
-    // background-color: @teal_500 !important;
-    // border-bottom: 5px solid @teal_A700;
+    background-color: @teal_500 !important;
+    border-bottom-left-radius: 8px !important;
+    border-bottom-right-radius: 7px !important;
+    color: @grey_100 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 30px !important; padding-top: 6px !important;
+
     // opacity: none !important;
     // transition: none !important;
+    *{ color: @grey_100; }
+    &:hover{ border-radius: none;}
 
     &:before{
-      background: transparent !important;
+      // background: transparent !important;
+      width: 100% !important;
+      opacity: 0.3;
+      background: @teal_500 !important;
+      // margin-left: 1px;
+      position: absolute;
+      &:hover{
+        opacity: 0;
+      }
     }
-  }
+    /* icon de los tab activo */
+    div:first-child{
+      &::before {
+        display: none;
+      }
+    }
 
+    /* ajustando la linea del tab - bottom */
+    &::after { margin-top: 0.25em !important; }
+
+  }
 
 }
 
@@ -953,16 +1022,16 @@ atom-text-editor {
 // }
 
 
-// scrool
+// scrool, scrollbar
 .horizontal-scrollbar{
   background: @grey_900 !important;
-  width: 50px;
-  opacity: 0.3;
+  width: 100%; height: 10px !important;
+  opacity: 0.1;
   visibility: visible;
-  &:hover{ opacity: 1; }
+  &:hover{ opacity: 0 !important;; }
 }
 .vertical-scrollbar{
-  height: 50px;   opacity: 0.3;
+  height: 100%;   opacity: 0.3;
   &:hover{ opacity: 1; }
 }
 
@@ -1005,10 +1074,10 @@ atom-notifications atom-notification .syntax--close{
 ul.list-inline.tab-bar.inset-panel{
   border-top: 2px solid @teal_500 !important;
 
+  // tab default
   li{
     margin: 0px;
-    padding: 3px 2em 3px 12px;
-    color: #bdbdbd;
+    padding: 3px 3em 3px 12px;
     text-align: center;
     font-family: 'Roboto', sans-serif;
     line-height: 1.4;
@@ -1016,17 +1085,42 @@ ul.list-inline.tab-bar.inset-panel{
     transition: none;
     opacity: 1;
     overflow: hidden;
+    box-shadow: none !important; /* para quitar  linea negra entre el tab y su border-bottom */
 
+    /* tab hover */
     &:hover {
       transition: none;
-      color: #eeeeee;
-      border-bottom: 5px solid #00bfa5;
-      background: #009688;
-      transition: box-shadow 0.25s;
-      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+      // border-bottom: 5px solid @teal_A700;
+      background: @teal_500 !important;
+      // border-bottom-left-radius: 8px !important;
+      // border-bottom-right-radius: 6px !important;
+      padding-bottom: 0px !important;
     }
+
+    /* border animation */
+    display: inline-block;
+
+    /* linea tab - bottom  in the hover tab */
+    &::after {
+        content: '';
+        display: block;
+        width: 0;
+        height: 5px;
+        margin-top: 0.52em;
+        left: 0px; margin-left: -30px;
+        background: @teal_A700;
+        transition: width .35s;
+    }
+    &:hover::after {
+        width: 150%;
+        //transition: width .3s;
+    }
+
+
   }
+
 }
+
 
 
 .syntax--directory.syntax--entry.list-nested-item.status-modified.selected.syntax--expanded{
