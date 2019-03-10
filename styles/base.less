@@ -69,11 +69,24 @@ box-sizing: border-box;
 
               /* acomodando linea de seleccion */
               &::before{
-                content: ''; width: 3px; height: 100%;
+                content: ''; width: 0; height: 0;
                 position: absolute;
-                background: @grey_800;
-                margin-left: 40px;
+                // background: @grey_800;
+                border-right: 10px solid @teal_600;
+                border-top: 10px solid transparent;
+                border-bottom: 10px solid transparent;
+                right: 0; margin-top: 1px;
+
               }
+              &::after{
+                content: ''; width: 100%; height: 100%;
+                position: absolute;
+                background: @grey_900;
+                display: flex;
+                right: 0;
+
+              }
+
             }
 
             &.cursor-line-no-selection {
@@ -81,6 +94,13 @@ box-sizing: border-box;
                 color: @grey_600;
                 font-family: 'Roboto Medium';
                 text-shadow: @txt-shadown;
+
+                /* acomodando linea de seleccion */
+                &::before{
+                  border-right: 10px solid @grey_800;
+
+                }
+
             }
         }
 

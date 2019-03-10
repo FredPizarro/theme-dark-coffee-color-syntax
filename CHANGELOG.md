@@ -1,7 +1,7 @@
 
 ### 1.1.1
 * fixed typescript; color and size in sintax;
-* fixed line numeric; line separator.
+* fixed line numeric; line separator, add icon select line view.
 * fixed tree file in project: color, background.
 * fixed Gutter line: box line hidden and add one new line
 * fixed tab active; color, background, hover, transition - animation, select, position and margin, and icon hidden.

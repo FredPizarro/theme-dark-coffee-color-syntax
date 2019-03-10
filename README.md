@@ -7,12 +7,12 @@
 =======
 # Images
 
-#### view in html
-![HTML](https://i.imgur.com/ye5PrKB.png)
-#### view in CSS
-![HTML](https://i.imgur.com/6HW6MvA.png)
-#### view in TypeScript
-![HTML](http://i.imgur.com/qmu81lI.png)
+##### view in html
+![HTML](https://i.imgur.com/KG2HjmV.png)
+##### view in CSS
+![HTML](https://i.imgur.com/yEKI64Y.png)
+##### view in TypeScript
+![HTML](https://i.imgur.com/WdFc9N8.png)
 
 =======
 # Contact
